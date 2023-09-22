@@ -1,6 +1,6 @@
 title = "Olivine"
 description = "A theme for a personal knowledge base"
-base_url = "https://example.com"
+base_url = "https://dongryul-kim.github.io/olivine"
 
 compile_sass = true
 #generate_feed = true
