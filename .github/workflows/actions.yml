@@ -6,7 +6,9 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 permissions:
-  repository-projects: write
+  contents: write
+  issues: write
+  pull-requests: write
 jobs:
   deploy:
     runs-on: ubuntu-latest
