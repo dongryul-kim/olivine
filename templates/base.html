@@ -1,0 +1,72 @@
+{%- import "macros.html" as macros %}
+{%- if page or section %}
+{%- set_global current = section | default(value=page) %}
+{%- endif %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="manifest" href="{{ config.base_url | safe }}/manifest.json">
+    {%- block metadata %}
+    <title>{{ config.title }}</title>
+    <link rel="icon" type="image/x-icon" href="{{ get_url(path="olivine.svg") }}">
+    {%- endblock %}
+    {%- block stylesheets %}
+    <link href="{{ get_url(path="olivine.css") }}" rel="stylesheet"/>
+    {{ macros::defer_stylesheet(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css") }}
+    {%- endblock %}
+    {%- block scripts %}
+    <script src="{{ get_url(path="olivine.js") }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
+    {%- for js in config.extra.olivine.extra_js %}
+    <script src="{{ get_url(path=js) }}" {{ js.policy | default(value="") }}></script>
+    {%- endfor %}
+    {%- endblock %}
+  </head>
+
+  <body>
+    <script>
+      setSidebar();
+    </script>
+
+    <header>
+      <div>
+        {%- block header %}
+        {%- include "header/leftbar.html" %}
+        {%- include "header/breadcrumb.html" %}
+        {%- include "header/theme.html" %}
+        {%- include "header/rightbar.html" %}
+        {%- endblock %}
+      </div>
+    </header>
+
+    <div class="sidebar" id="leftbar">
+      <div class="sidebar-content">
+        {%- block leftbar %}
+        {%- include "leftbar/directory.html" %}
+        {%- include "leftbar/journal.html" %}
+        {%- include "leftbar/graph.html" %}
+        {%- include "leftbar/tags.html" %}
+        {%- endblock %}
+      </div>
+    </div>
+
+    <div class="sidebar" id="rightbar">
+      <div class="sidebar-content">
+        {%- block rightbar %}
+        {%- include "rightbar/toc.html" %}
+        {%- include "rightbar/backlinks.html" %}
+        {%- include "rightbar/forwardlinks.html" %}
+        {%- endblock %}
+      </div>
+    </div>
+
+    <div id="main-area">
+      <main>
+        {%- block content %}
+        {%- endblock %}
+      </main>
+    </div>
+  </body>
+</html>

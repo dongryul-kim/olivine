@@ -1,0 +1,10 @@
+{%- if current.backlinks %}
+<div id="olivine-backlinks">
+<h3>Backlinks</h3>
+<ul>
+  {%- for backlink in current.backlinks %}
+  <li><a href="{{ backlink.permalink }}">{{ backlink.title }}</a></li>
+  {%- endfor %}
+</ul>
+</div>
+{%- endif %}

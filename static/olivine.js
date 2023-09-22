@@ -1,0 +1,92 @@
+// Mathjax configuration
+var MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+  },
+};
+
+// Toggles sidebar state and saves it to session storage
+function toggleBar(bar) {
+  var list = document.body.classList;
+  if (list.contains(bar)) {
+    list.remove(bar);
+    sessionStorage.setItem(bar, "false");
+  } else {
+    list.add(bar);
+    sessionStorage.setItem(bar, "true");
+  }
+};
+
+// Loads sidebar information from session storage
+function setSidebar() {
+  for (bartype of ["leftbar", "rightbar"]) {
+    var sidebar = sessionStorage.getItem(bartype);
+    if (sidebar === "true")
+      document.body.classList.add(bartype);
+  }
+}
+
+// Sets up correct link to journal items
+function setJournal() {
+  function dateToString(d) {
+    return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,"0") +
+    '-' + String(d.getDate()).padStart(2, '0');
+  };
+
+  const date = new Date();
+  document.getElementById('olivine-today').setAttribute('href', '/journal/' +
+    dateToString(date) + '/');
+  date.setTime(date.getTime() - 24*60*60*1000);
+  document.getElementById('olivine-yesterday').setAttribute('href', '/journal/'
+    + dateToString(date) + '/');
+  document.getElementById('olivine-calendar').setAttribute('href', '/journal/');
+}
+
+// Sets up theme
+function setTheme() {
+  var theme = window.sessionStorage.getItem('theme');
+  if (theme == undefined) {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches)
+      theme = 'light';
+    else
+      theme = 'dark';
+  }
+  document.documentElement.setAttribute('data-theme', theme);
+}
+setTheme();
+
+// Toggle theme
+function toggleTheme() {
+  var theme = document.documentElement.getAttribute('data-theme');
+  var themeList = ['light', 'dark'];
+  var index = themeList.findIndex((_) => {return _ == theme;});
+  theme = themeList[(index + 1) % themeList.length];
+  document.documentElement.setAttribute('data-theme', theme);
+  sessionStorage.setItem('theme', theme);
+}
+
+// Hydrate forward link
+function hydrateForward(id, array, url) {
+  fetch(url)
+    .then((response) => {
+      if (response.status >= 200 && response.status < 300) {
+        return Promise.resolve(response)
+      } else {
+        return Promise.reject(new Error(response.statusText))
+      }})
+    .then((response) => {
+      return response.text();
+    })
+    .then((text) => {
+      text = text.split('\n')[0];
+      var map = JSON.parse(text);
+      var li = '';
+      console.log(map);
+      for (path of array) {
+        if (!path.endsWith('/')) path = path + '/';
+        li += '<li><a href="' + path + '">' + map[path] + '</a></li>\n';
+      }
+      document.getElementById(id).innerHTML = li;
+    });
+}
+

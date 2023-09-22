@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ current.title | safe }}</h1>
+
+{% if current.taxonomies["tags"] %}
+{% for tag in current.taxonomies["tags"] %}
+<span class="olivine-tag"><a href="{{ config.base_url | safe }}/tags/{{ tag }}/">#{{ tag }}</a></span>
+{% endfor %}
+{% endif %}
+
+{{ current.content | safe }}
+
+{% endblock %}

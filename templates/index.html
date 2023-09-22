@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if current.content %}
+<h1>{{ current.title }}</h1>
+
+{% if current.taxonomies["tags"] %}
+{% for tag in current.taxonomies["tags"] %}
+<span class="olivine-tag"><a href="{{ config.base_url }}/tags/{{ tag }}/">#{{ tag }}</a></span>
+{% endfor %}
+{% endif %}
+
+{{ current.content | safe }}
+
+{% else %}
+
+<div style="display:flex; align-items:center; justify-content:center; margin:1em;">
+  <img src="{{ get_url(path="olivine.svg") }}" height="80" width="60"/>
+  <p style="font-size:300%; margin-left:0.3em;">Olivine</p>
+</div>
+<p>Welcome to Olivine, a Zola theme for creating a personal knowledge base.</p>
+
+<h2>Getting started</h2>
+<p>To get started, 
+
+{% endif %}
+{% endblock %}

@@ -1,0 +1,8 @@
+{% if config.extra.olivine.journal %}
+<ul>
+  <li><a id="olivine-today">{{ macros::icon(name="calendar-check") }} Today</a></li>
+  <li><a id="olivine-yesterday">{{ macros::icon(name="calendar-minus") }} Yesterday</a></li>
+  <li><a id="olivine-calendar">{{ macros::icon(name="calendar-days") }} All entries</a></li>
+  <script>setJournal();</script>
+</ul>
+{% endif %}

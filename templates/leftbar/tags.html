@@ -1,0 +1,4 @@
+{%- set tax_names = config.taxonomies | map(attribute="name") %}
+{%- if tax_names is containing("tags") %}
+<ul><li><a href="{{ config.base_url | safe }}/tags/">{{ macros::icon(name="tags", type="solid") }}Tags</a></li></ul>
+{%- endif %}

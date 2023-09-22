@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block stylesheets %}
+{{ super() }}
+{% if config.extra.olivine.calendar %}
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/js-year-calendar@latest/dist/js-year-calendar.min.css" />
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{% if config.extra.olivine.calendar %}
+<script src="https://unpkg.com/js-year-calendar@latest/dist/js-year-calendar.min.js"></script>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<h1>Journal</h1>
+{% if config.extra.olivine.calendar %}
+<div id="calendar"></div>
+<style>
+:root {
+  --date-bg: color-mix(in srgb,var(--link),var(--body-bg) 80%);
+  --date-bg-hover: color-mix(in srgb,var(--link),var(--body-bg) 50%);
+}
+table.month td.day .day-content:hover {
+  background: transparent;
+  cursor: pointer;
+}
+</style>
+<script>
+var journalEntries = [
+  {% for page in current.pages %}
+  "{{ page.slug }}",
+  {% endfor %}];
+dataSource = journalEntries.map((d) => {
+  const date = new Date(parseInt(d.slice(0,4)), parseInt(d.slice(5,7))-1, parseInt(d.slice(8,10)));
+  return { color: 'var(--date-bg)', startDate: date, endDate: date };
+});
+var calendar = new Calendar('#calendar', {
+  dataSource, 
+  style: 'background',
+  mouseOnDay: function(e) {
+    if (e.events.length > 0)
+      e.element.style.backgroundColor = 'var(--date-bg-hover)';
+  },
+  mouseOutDay: function(e) {
+    if (e.events.length > 0)
+      e.element.style.backgroundColor = 'var(--date-bg)';
+  },
+  clickDay: function(e) {
+    if (e.events.length > 0) {
+      console.log(e.date);
+      console.log(e.date.getFullYear());
+      window.location.href = '{{ config.base_url | safe }}/journal/' +
+        e.date.getFullYear().toString() + '-' +
+        (e.date.getMonth()+1).toString().padStart(2,'0') + '-' +
+        e.date.getDate().toString().padStart(2,'0') + '/';
+    }
+  }
+});
+</script>
+{% endif %}
+
+{{ current.content | safe }}
+{% endblock %}
+
