@@ -34,12 +34,13 @@ function setJournal() {
   };
 
   const date = new Date();
-  document.getElementById('olivine-today').setAttribute('href', '/journal/' +
-    dateToString(date) + '/');
+  document.getElementById('olivine-today').setAttribute('href', olivine.base_url
+    + '/journal/' + dateToString(date) + '/');
   date.setTime(date.getTime() - 24*60*60*1000);
-  document.getElementById('olivine-yesterday').setAttribute('href', '/journal/'
-    + dateToString(date) + '/');
-  document.getElementById('olivine-calendar').setAttribute('href', '/journal/');
+  document.getElementById('olivine-yesterday').setAttribute('href',
+    olivine.base_url + '/journal/' + dateToString(date) + '/');
+  document.getElementById('olivine-calendar').setAttribute('href',
+    olivine.base_url + '/journal/');
 }
 
 // Sets up theme
@@ -81,7 +82,6 @@ function hydrateForward(id, array, url) {
       text = text.split('\n')[0];
       var map = JSON.parse(text);
       var li = '';
-      console.log(map);
       for (path of array) {
         if (!path.endsWith('/')) path = path + '/';
         li += '<li><a href="' + path + '">' + map[path] + '</a></li>\n';

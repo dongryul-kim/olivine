@@ -15,7 +15,6 @@
 forward_list = [
 {% for path in forward %} "{{ path | safe }}", {% endfor %}
 ];
-console.log(forward_list);
 hydrateForward("olivine-forward-link-lists", forward_list,
 "{{ config.base_url | safe }}/olivine-internal-sitemap/");
 </script>

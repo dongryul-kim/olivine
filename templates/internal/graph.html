@@ -71,7 +71,7 @@ cy.on('mouseout touchend', 'node', function(evt){
 
 cy.on('tap', 'node', function(evt){
   var node = evt.target;
-  window.location.href = '{{ config.base_url | safe }}' + node.id();
+  window.location.href = olivine.base_url + node.id();
 });
 </script>
 {% endblock %}

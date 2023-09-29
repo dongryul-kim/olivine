@@ -52,7 +52,7 @@ var calendar = new Calendar('#calendar', {
     if (e.events.length > 0) {
       console.log(e.date);
       console.log(e.date.getFullYear());
-      window.location.href = '{{ config.base_url | safe }}/journal/' +
+      window.location.href = olivine.base_url + '/journal/' +
         e.date.getFullYear().toString() + '-' +
         (e.date.getMonth()+1).toString().padStart(2,'0') + '-' +
         e.date.getDate().toString().padStart(2,'0') + '/';
