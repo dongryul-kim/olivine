@@ -1,0 +1,18 @@
+{
+  "name" : "Olivine",
+  "description" : "A Zola theme for a personal knowledge base",
+  "start_url" : ".",
+  "scope" : ".",
+  "theme_color" : "#786",
+  "background_color" : "#786",
+  "display" : "minimal-ui",
+  "orientation": "any",
+  "icons" : [
+    {
+      "src" : "./olivine.svg",
+      "type" : "image/svg+xml",
+      "sizes" : "any",
+      "purpose": "any maskable"
+    }
+  ]
+}
