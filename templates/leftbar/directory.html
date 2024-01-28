@@ -14,7 +14,7 @@
   <li><a href="{{ me.permalink | safe }}">{{ macros::icon(name="file-lines") }} {{ me.title | safe }}</a></li>
   {%- else %}
   <li><a href="{{ me.permalink | safe }}">{{ macros::icon(name="folder-open") }} {{ me.title | safe }}</a></li>
-  <ul>
+  <li><ul>
     {%- for child in me.subsections | sort %}
     {%- set section = get_section(path=child) %}
     {%- set slug = section.components | last %}
@@ -31,6 +31,6 @@
     <li><a href="{{ page.permalink | safe }}">{{ macros::icon(name="file-lines") }} {{ page.title | safe }}</a></li>
     {%- endif %}
     {%- endfor %}
-  </ul>
+  </ul></li>
   {%- endif %}
 </ul>

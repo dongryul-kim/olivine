@@ -6,13 +6,13 @@
   <li>
     <a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
     {%- if h1.children %}
-    <ul>
+    <li><ul>
       {%- for h2 in h1.children %}
       <li>
         <a href="{{ h2.permalink | safe }}">{{ h2.title }}</a>
       </li>
       {%- endfor %}
-    </ul>
+    </ul></li>
     {%- endif %}
   </li>
   {%- endfor %}
