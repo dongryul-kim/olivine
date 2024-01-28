@@ -19,6 +19,14 @@ function toggleBar(bar) {
 
 // Loads sidebar information from session storage
 function setSidebar() {
+  if (window.matchMedia("screen and (min-width: 70rem)").matches) {
+    if (sessionStorage.getItem("leftbar") === null)
+      sessionStorage.setItem("leftbar", "true");
+  }
+  if (window.matchMedia("screen and (min-width: 90rem)").matches) {
+    if (sessionStorage.getItem("rightbar") === null)
+      sessionStorage.setItem("rightbar", "true");
+  }
   for (bartype of ["leftbar", "rightbar"]) {
     var sidebar = sessionStorage.getItem(bartype);
     if (sidebar === "true")

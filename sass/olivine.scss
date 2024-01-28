@@ -1,6 +1,7 @@
 $header-height: 3rem;
 $leftbar-width: 15rem;
 $rightbar-width: 15rem;
+$main-max-width: 50rem;
 
 html[data-theme='light'] {
   --body-bg: #eee;
@@ -148,7 +149,7 @@ header {
 main {
   line-height: 1.7;
   width: 100%;
-  max-width: 50rem;
+  max-width: $main-max-width;
   margin: 0 auto;
   margin-bottom: 3rem;
 
