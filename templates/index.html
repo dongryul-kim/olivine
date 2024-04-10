@@ -13,15 +13,7 @@
 {{ current.content | safe }}
 
 {% else %}
-
-<div style="display:flex; align-items:center; justify-content:center; margin:1em;">
-  <img src="{{ get_url(path="olivine.svg") }}" height="80" width="60"/>
-  <p style="font-size:300%; margin-left:0.3em;">Olivine</p>
-</div>
-<p>Welcome to Olivine, a Zola theme for creating a personal knowledge base.</p>
-
-<h2>Getting started</h2>
-<p>To get started, 
-
+<h1>Welcome to Olivine</h1>
+<p>Please visit the <a href="https://github.com/dongryul-kim/olivine">Github repository</a> for information on getting started.</p>
 {% endif %}
 {% endblock %}

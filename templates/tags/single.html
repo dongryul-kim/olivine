@@ -3,7 +3,7 @@
 {% block content %}
 <h1>#{{ term.name }}</h1>
 <ul>
-  {% for page in term.pages %}
+  {% for page in term.pages | sort(attribute="path") %}
   <li><a href="{{ page.path }}">{{ page.title | safe }}</a></li>
   {% endfor %}
 </ul>
