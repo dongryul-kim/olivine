@@ -156,21 +156,31 @@ main {
   h1 {
     font-size: 200%;
     margin: 1em 0;
-    scroll-margin-top: $header-height;
   }
   h2 {
     font-size: 150%;
     margin-top: 1.5em;
-    scroll-margin-top: $header-height;
   }
   h3 {
     font-size: 130%;
+  }
+  h4 {
+    font-size: 110%;
+  }
+  h1, h2, h3, h4 {
     scroll-margin-top: $header-height;
   }
 
   table {
     margin: 1em auto;
     border-spacing: 1.5em 0;
+  }
+  p > code {
+    background-color: var(--sidebar-bg);
+    padding: 0.2em 0.3em;
+  }
+  pre {
+    padding: 0.5em;
   }
 
   .MathJax {
@@ -189,12 +199,13 @@ main {
 
   span.olivine-tag {
     font-size: 0.9em;
-    line-height: 1.8em;
     display: inline-block;
     border-radius: 0.3em;
     padding: 0 0.5em;
     background-color: color-mix(in srgb,var(--link),var(--body-bg) 90%);
-    margin: 0.3em;
+  }
+  > span.olivine-tag {
+    margin: 0.4rem;
   }
 
   details.proof {
