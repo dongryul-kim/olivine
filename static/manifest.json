@@ -9,10 +9,15 @@
   "orientation": "any",
   "icons" : [
     {
-      "src" : "./olivine.svg",
-      "type" : "image/svg+xml",
-      "sizes" : "any",
-      "purpose": "any maskable"
+      "src" : "./icon-192.png",
+      "type" : "image/png",
+      "sizes" : "192x192"
+    },
+    {
+      "src" : "./icon-192-maskable.png",
+      "type" : "image/png",
+      "sizes" : "192x192",
+      "purpose": "maskable"
     }
   ]
 }
