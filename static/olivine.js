@@ -91,8 +91,9 @@ function hydrateForward(id, array, url) {
       var map = JSON.parse(text);
       var li = '';
       for (path of array) {
+        path = path.split('#')[0];
         if (!path.endsWith('/')) path = path + '/';
-        li += '<li><a href="' + path + '">' + map[path] + '</a></li>\n';
+        if (map[path]) li += '<li><a href="' + path + '">' + map[path] + '</a></li>\n';
       }
       document.getElementById(id).innerHTML = li;
     });
