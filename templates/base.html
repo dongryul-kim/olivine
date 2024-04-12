@@ -8,6 +8,7 @@
     <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="manifest" href="{{ config.base_url | safe }}/manifest.json">
+    <meta name="theme-color" content="#786"/>
     {%- block metadata %}
     <title>{{ config.title }}{%- if current.title %} &bull; {{ current.title | safe }}{%- endif -%}</title>
     <meta name="description" content="{% if current.description %}{{ current.description }}{% elif current.title %}{{ current.title }}{% if current.content %} - {{ current.content | striptags | truncate(length=120) }}{% endif %}{% else %}{{ config.title }}{% if config.description %} - {{ config.description }}{% endif %}{% endif %}"/>
