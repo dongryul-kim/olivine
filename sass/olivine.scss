@@ -99,7 +99,6 @@ header {
   position: fixed;
   height: calc(100vh - $header-height);
   top: $header-height;
-  //padding-top: $header-height;
 }
 
 #leftbar {
@@ -136,7 +135,14 @@ header {
   }
 
   a {
-      color: inherit;
+    color: inherit;
+    display: block;
+  }
+
+  #olivine-directory.hidden {
+    li.hidden {
+      display: none;
+    }
   }
 }
 

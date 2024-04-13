@@ -1,4 +1,4 @@
-{% macro sitemap(path, first) %}
+{%- macro sitemap(path, first) -%}
 {%- set section = get_section(path=path) -%}
 {%- if not first %}, {% endif -%}
 "{{ section.path | safe }}" : "{{ section.title | default(value="") | safe }}"
@@ -8,16 +8,15 @@
 {%- for page in section.pages -%}
 , "{{ page.path | safe }}" : "{{ page.title | default(value="") | safe }}"
 {%- endfor -%}
-{% endmacro sitemap %}
+{%- endmacro sitemap -%}
 
-{% macro icon(name, type="regular") %}
+{%- macro icon(name, type="regular") -%}
 <span class="olivine-icon"><i class="fa-{{ type }} fa-{{ name }}"></i></span>
-{% endmacro icon %}
+{%- endmacro icon -%}
 
-{% macro defer_stylesheet(href) %}
-<link rel="preload" href="{{ href | safe }}" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
-<noscript><link rel="stylesheet" href="{{ href | safe }}"/></noscript>
-{% endmacro defer_stylesheet %}
+{%- macro defer_stylesheet(href) -%}
+<link rel="preload" href="{{ href | safe }}" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="{{ href | safe }}"/></noscript>
+{%- endmacro defer_stylesheet -%}
 
 {% macro extract_back(obj) %}
 {% for backlink in obj.backlinks %}

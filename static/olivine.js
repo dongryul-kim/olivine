@@ -99,3 +99,9 @@ function hydrateForward(id, array, url) {
     });
 }
 
+// Expand extra elements in directory
+function directoryExpand() {
+  document.getElementById('olivine-directory').classList.remove('hidden');
+  document.getElementById('olivine-directory-expand').remove();
+}
+

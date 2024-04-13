@@ -1,36 +1,30 @@
 {%- set exclude = [ "graph.md" ] -%}
 
-{%- if current %}
-{%- set me = current %}
-{%- else %}
-{%- set me = get_section(path="_index.md") %}
-{%- endif -%}
-<ul>
-  {%- for ancestor in me.ancestors %}
-  {%- set section = get_section(path=ancestor) %}
-  <li><a href="{{ section.permalink | safe }}">{{ macros::icon(name="folder-open") }} {{ section.title | safe }}</a></li>
+{%- if current -%}
+{%- set me = current -%}
+<ul class="hidden" id="olivine-directory">
+  {%- if me.path != "/" %}
+  <li><a href="..">{{ macros::icon(name="turn-up", type="solid") }} ..</a></li>
+  {%- endif %}
+  {%- if section %}
+  {%- for child in me.subsections | sort %}
+  {%- set section = get_section(path=child) %}
+  {%- set slug = section.components | last %}
+  {%- if slug is not starting_with("olivine-internal") %}
+  <li><a href="{{ section.permalink | safe }}">{{ macros::icon(name="folder") }} {{ section.title | safe }}</a></li>
+  {%- endif %}
+  {%- endfor -%}
+
+  {%- for page in me.pages %}
+  {%- set slug = page.components | last %}
+  {%- if slug is not starting_with("olivine-internal") %}
+  <li{% if loop.index > 10 %} class="hidden"{% endif %}><a href="{{ page.permalink | safe }}">{{ macros::icon(name="file-lines") }} {{ page.title | safe }}</a></li>
+  {%- endif %}
   {%- endfor %}
-  {%- if page %}
-  <li><a href="{{ me.permalink | safe }}">{{ macros::icon(name="file-lines") }} {{ me.title | safe }}</a></li>
-  {%- else %}
-  <li><a href="{{ me.permalink | safe }}">{{ macros::icon(name="folder-open") }} {{ me.title | safe }}</a></li>
-  <li><ul>
-    {%- for child in me.subsections | sort %}
-    {%- set section = get_section(path=child) %}
-    {%- set slug = section.components | last %}
-    {%- if slug is not starting_with("olivine-internal") %}
-    <li><a href="{{ section.permalink | safe }}">{{ macros::icon(name="folder") }} {{ section.title | safe }}</a></li>
-    {%- endif %}
-    {%- endfor %}
-    {%- if me.pages | length > 10 %}
-    <li>{{ macros::icon(name="file-lines") }} &ctdot;</li>
-    {%- endif %}
-    {%- for page in me.pages | slice(start=-10) %}
-    {%- set slug = page.components | last %}
-    {%- if slug is not starting_with("olivine-internal") %}
-    <li><a href="{{ page.permalink | safe }}">{{ macros::icon(name="file-lines") }} {{ page.title | safe }}</a></li>
-    {%- endif %}
-    {%- endfor %}
-  </ul></li>
+  {%- if me.pages | length > 10 %}
+  <li id="olivine-directory-expand"><a onclick="directoryExpand();">{{ macros::icon(name="caret-down", type="solid") }} show all</a></li>
+  {%- endif %}
   {%- endif %}
 </ul>
+<hr noshade style="width:100%;">
+{%- endif -%}
