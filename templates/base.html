@@ -10,7 +10,7 @@
     <link rel="manifest" href="{{ config.base_url | safe }}/manifest.json">
     <meta name="theme-color" content="#786"/>
     {%- block metadata %}
-    <title>{{ config.title }}{%- if current.title %} &bull; {{ current.title | safe }}{%- endif -%}</title>
+    <title>{{ config.title }}{% if current.title %} &middot; {{ current.title | safe }}{% endif %}</title>
     <meta name="description" content="{% if current.description %}{{ current.description }}{% elif current.title %}{{ current.title }}{% if current.content %} - {{ current.content | striptags | truncate(length=120) }}{% endif %}{% else %}{{ config.title }}{% if config.description %} - {{ config.description }}{% endif %}{% endif %}"/>
     <link rel="icon" type="image/x-icon" href="{{ get_url(path="icon.svg") }}">
     {%- endblock %}

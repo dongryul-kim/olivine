@@ -1,13 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>{{ current.title | safe }}</h1>
+{%- if page -%}
+{%- set section_name = page.ancestors | last -%}
+{%- set section_var = get_section(path=section_name, metadata_only=true) -%}
+{%- endif -%}
+<h1>
+{%- if section_var.extra["siblings"] and current.lower -%}
+<a href="{{ current.lower.permalink }}">{{ macros::icon(type="solid", name="angle-left") }}</a>
+{%- endif -%}
+{{ current.title | safe }}
+{%- if section_var.extra["siblings"] and current.higher -%}
+<a href="{{ current.higher.permalink }}">{{ macros::icon(type="solid", name="angle-right") }}</a>
+{%- endif -%}
+</h1>
 
-{% if current.taxonomies["tags"] %}
-{% for tag in current.taxonomies["tags"] %}
+{% if current.taxonomies["tags"] -%}
+{% for tag in current.taxonomies["tags"] -%}
 <span class="olivine-tag"><a href="{{ config.base_url | safe }}/tags/{{ tag }}/">#{{ tag }}</a></span>
-{% endfor %}
-{% endif %}
+{% endfor -%}
+{% endif -%}
 
 {{ current.content | safe }}
 
