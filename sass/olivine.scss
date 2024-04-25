@@ -225,7 +225,7 @@ main {
     }
   }
 
-  li:has(input:checked) {
+  li:has(>input:first-child:checked) {
     text-decoration:line-through;
     color: color-mix(in srgb,var(--body-text),var(--body-bg) 50%);
   }
