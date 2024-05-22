@@ -19,24 +19,24 @@
 {%- endmacro defer_stylesheet -%}
 
 {% macro extract_back(obj) %}
-{% for backlink in obj.backlinks %}
-{% set back = backlink.permalink | trim_start_matches(pat=config.base_url) %}
+{%- for backlink in obj.backlinks -%}
+{%- set back = backlink.permalink | trim_start_matches(pat=config.base_url) -%}
 { data: { source: '{{back|safe}}', target: '{{obj.path|safe}}' } },
-{% endfor %}
+{% endfor -%}
 {% endmacro %}
 
 {% macro extract(path) %}
-{% set section = get_section(path=path) %}
+{%- set section = get_section(path=path) -%}
 { data: { id: '{{section.path|safe}}', type: 'section', name: '{{section.title|replace(from="'",to="\'")|truncate(length=20)|safe}}' } },
 {{ self::extract_back(obj=section) }}
-{% for page in section.pages %}
+{%- for page in section.pages -%}
 { data: { id: '{{page.path|safe}}', type: 'page', name: '{{page.title|replace(from="'",to="\'")|truncate(length=20)|safe}}' } },
 { data: { source: '{{page.path|safe}}', target: '{{section.path|safe}}' } },
 {{ self::extract_back(obj=page) | safe }}
-{% endfor %}
-{% for subsection in section.subsections %}
+{%- endfor -%}
+{%- for subsection in section.subsections -%}
 {{ self::extract(path=subsection) | safe }}
-{% set var_subsection = get_section(path=subsection) %}
+{%- set var_subsection = get_section(path=subsection) -%}
 { data: { source: '{{var_subsection.path|safe}}', target: '{{section.path|safe}}' } },
-{% endfor %}
+{% endfor -%}
 {% endmacro extract %}

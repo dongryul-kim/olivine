@@ -10,19 +10,32 @@
 <div id="olivine-graph" style="width:100%; height:30em; display:block; border: 1px solid var(--body-text);">
 </div>
 <script>
+let cy_elements = [
+{%- set tags = get_taxonomy(kind="tags") %}
+{%- for tag in tags.items %}
+{ data: { id: '/tags/{{tag.name|safe}}/', type: 'tag', name: '#{{tag.name|safe}}' } },
+{%- for page in tag.pages %}
+{ data: { source: '{{page.path|safe}}', target: '/tags/{{tag.name|safe}}/' } },
+{%- endfor %}
+{%- endfor %}
+{{ macros::extract(path="_index.md") | safe }}];
+
+// Clean up data
+function bad_id(id) {
+  return id.startsWith("/olivine-internal");
+}
+cy_elements = cy_elements.filter(item => {
+  if (item.data.id === undefined) {
+    return (item.data.source !== item.data.target) && !bad_id(item.data.source)
+      && !bad_id(item.data.target);
+  } else {
+    return !bad_id(item.data.id);
+  }
+});
+
 const cy = cytoscape({
   container: document.getElementById('olivine-graph'),
-  elements: [
-{% set tags = get_taxonomy(kind="tags") %}
-{% for tag in tags.items %}
-{ data: { id: '/tags/{{tag.name|safe}}/', type: 'tag', name: '#{{tag.name|safe}}' },
-    classes: 'bottom-center' },
-{% for page in tag.pages %}
-{ data: { source: '{{page.path|safe}}', target: '/tags/{{tag.name|safe}}/' } },
-{% endfor %}
-{% endfor %}
-{{ macros::extract(path="_index.md") | safe }}
-  ],
+  elements: cy_elements,
   layout: {
     name: 'cose',
   },
@@ -44,8 +57,6 @@ const cy = cytoscape({
     style: {
       "width": 1,
       "curve-style": "straight",
-      //"target-arrow-shape": "vee",
-      "arrrow-scale": 0.5,
       "color": "#777",
       "opacity": 0.4,
     }},
@@ -53,7 +64,6 @@ const cy = cytoscape({
   autoungrabify: true,
   autounselectify: true,
 });
-
 
 cy.on('mouseover touchstart', 'node', function(evt){
   var node = evt.target;
