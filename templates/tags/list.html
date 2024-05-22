@@ -3,6 +3,6 @@
 {% block content %}
 <h1>{{ taxonomy.name | title }}</h1>
 {% for term in terms | sort(attribute="page_count") | reverse %}
-<span class="olivine-tag"><a href="{{ term.path }}">#{{ term.name | safe }}</a> {{ term.page_count }}</span>
+<span class="olivine-tag"><a href="{{ term.permalink | safe }}">#{{ term.name | safe }}</a> {{ term.page_count }}</span>
 {% endfor %}
 {% endblock %}
