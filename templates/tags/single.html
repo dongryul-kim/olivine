@@ -4,7 +4,9 @@
 <h1>#{{ term.name }}</h1>
 <ul>
   {% for page in term.pages | sort(attribute="path") %}
-  <li><a href="{{ page.path }}">{{ page.title | safe }}</a></li>
+  <li><a href="{{ page.path }}">{{ page.title | safe }}</a>
+    {%- if page.description %}: {{ page.description | safe }}{% endif -%}
+  </li>
   {% endfor %}
 </ul>
 {% endblock %}
