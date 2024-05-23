@@ -14,7 +14,7 @@ html[data-theme='light'] {
   --admonish-bg: #ddd
 }
 
-html[data-theme='dark'] {
+html, html[data-theme='dark'] {
   --body-bg: #111;
   --body-text: #bbb;
   --sidebar-bg: #222;
@@ -30,6 +30,7 @@ body {
   background-color: var(--body-bg);
   color: var(--body-text);
   font-family: "Arial", sans-serif;
+  color-scheme: light dark;
 
   a {
     color: var(--link);
