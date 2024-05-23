@@ -1,13 +1,12 @@
 <div dir="rtl" id="olivine-breadcrumb">
-{%- if current %}
-{%- for ancestor in current.ancestors %}
-{%- set section = get_section(path=ancestor) %}
-<a href="{{ section.permalink | safe }}">{{ section.title | safe }}</a>
-<span>/</span>
-{%- endfor %}
+{% if current -%}
+{%- for ancestor in current.ancestors -%}
+{%- set section = get_section(path=ancestor) -%}
+<a href="{{ section.permalink | safe }}">{{ section.title | safe }}</a><span> / </span>
+{%- endfor -%}
 <a href="{{ current.permalink | safe }}">{{ current.title | safe }}</a>
-{%- else %}
-{%- set section = get_section(path="_index.md") %}
+{%- else -%}
+{%- set section = get_section(path="_index.md") -%}
 <a href="{{ config.base_url | safe }}">{{ section.title }}</a>
 {%- endif %}
 </div>
