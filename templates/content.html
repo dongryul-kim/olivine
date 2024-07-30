@@ -7,11 +7,11 @@
 {%- endif -%}
 <h1>
 {%- if section_var.extra["siblings"] and current.lower -%}
-<a href="{{ current.lower.permalink }}">{{ macros::icon(type="solid", name="angle-left") }}</a>
+<a title="{{ current.lower.title }}" href="{{ current.lower.permalink }}">{{ macros::icon(type="solid", name="angle-left") }}</a>
 {%- endif -%}
-{{ current.title | safe }}
+<span{% if current.description %} title="{{current.description}}"{% endif %}>{{ current.title | safe }}</span>
 {%- if section_var.extra["siblings"] and current.higher -%}
-<a href="{{ current.higher.permalink }}">{{ macros::icon(type="solid", name="angle-right") }}</a>
+<a title="{{ current.higher.title }}" href="{{ current.higher.permalink }}">{{ macros::icon(type="solid", name="angle-right") }}</a>
 {%- endif -%}
 </h1>
 
