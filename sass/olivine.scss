@@ -230,6 +230,19 @@ main {
     text-decoration:line-through;
     color: color-mix(in srgb,var(--body-text),var(--body-bg) 50%);
   }
+
+  blockquote {
+    margin-left: 0em;
+    padding-left: 1em;
+    border-left: .1em solid color-mix(in srgb,var(--body-text),var(--body-bg) 30%);
+    color: color-mix(in srgb,var(--body-text),var(--body-bg) 30%);
+  }
+
+  .footnote-definition {
+    p {
+      margin-top: 0;
+    }
+  }
 }
 
 @media print {
