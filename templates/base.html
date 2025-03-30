@@ -21,7 +21,9 @@
     {%- include "config.html" %}
     {%- block scripts %}
     <script src="{{ get_url(path="olivine.js") }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
+    {% if config.extra.olivine.mathjax -%}
+    {%- include "internal/mathjax.html" -%}
+    {%- endif %}
     {%- for js in config.extra.olivine.extra_js %}
     <script src="{{ get_url(path=js) }}" {{ js.policy | default(value="") }}></script>
     {%- endfor %}

@@ -1,0 +1,14 @@
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      macros: {br: '\\\\'},
+      packages: {'[+]': ['amscd']}
+    },
+  };
+  for (oper of ['id', 'im', 'tr', 'coker', 'Hom', 'End', 'Aut', 'Ext', 'Tor',
+    'Gal', 'Spec', 'Spf']) {
+    MathJax.tex.macros[oper] = '\\operatorname{' + oper + '}';
+  }
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
