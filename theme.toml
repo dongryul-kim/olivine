@@ -1,9 +1,9 @@
 name = "Olivine"
 description = "A Zola theme for a personal knowledge base"
 license = "MIT"
-homepage = "https://github.com/"
+homepage = "https://github.com/dongryul-kim/olivine"
 min_version = "0.17.2"
-demo = ""
+demo = "https://dongryul-kim.github.io/olivine/"
 
 [extra.olivine]
 journal = true
