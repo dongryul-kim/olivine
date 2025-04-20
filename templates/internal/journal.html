@@ -56,6 +56,14 @@ var calendar = new Calendar('#calendar', {
 });
 </script>
 
-{{ current.content | safe }}
+{% if current.pages | length > 0 %}
+<ul>
+{% for page in current.pages %}
+<li><a href="{{ page.permalink | safe }}">{{ page.title | safe }}</a>
+{%- if page.description %}: {{ page.description | safe }}{% endif -%}
+</li>
+{% endfor %}
+</ul>
+{% endif %}
 {% endblock %}
 
