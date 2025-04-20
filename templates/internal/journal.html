@@ -2,21 +2,16 @@
 
 {% block stylesheets %}
 {{ super() }}
-{% if config.extra.olivine.calendar %}
 <link rel="stylesheet" type="text/css" href="https://unpkg.com/js-year-calendar@latest/dist/js-year-calendar.min.css" />
-{% endif %}
 {% endblock %}
 
 {% block scripts %}
 {{ super() }}
-{% if config.extra.olivine.calendar %}
 <script src="https://unpkg.com/js-year-calendar@latest/dist/js-year-calendar.min.js"></script>
-{% endif %}
 {% endblock %}
 
 {% block content %}
 <h1>Journal</h1>
-{% if config.extra.olivine.calendar %}
 <div id="calendar"></div>
 <style>
 :root {
@@ -60,7 +55,6 @@ var calendar = new Calendar('#calendar', {
   }
 });
 </script>
-{% endif %}
 
 {{ current.content | safe }}
 {% endblock %}

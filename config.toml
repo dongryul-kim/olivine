@@ -21,7 +21,6 @@ index_format = "elasticlunr_json"
 # The following are the default values
 [extra.olivine]
 journal = true   # Enables journal functionality
-calendar = true  # Enables calendar view in default page
 mathjax = true   # Enables MathJax
 graph = true     # Enables graph view
 extra_js = [ ]   # Extra javascript files, an array of strings
