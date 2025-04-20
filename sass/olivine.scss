@@ -186,8 +186,30 @@ main {
     background-color: var(--sidebar-bg);
     padding: 0.2em 0.3em;
   }
+
   pre {
     padding: 0.5em;
+    code[data-lang]::before {
+      content: "[ " attr(data-lang) " ]";
+      display: block;
+      padding: 0.5em;
+      text-transform: uppercase;
+    }
+    table {
+      td:first-child {
+        width: 2.5em;
+      }
+      tr:has(mark) {
+        background-color: rgba(110,180,80,0.15);
+      }
+      mark {
+        background-color: inherit !important;
+        color: inherit;
+      }
+      margin: 0;
+      border-spacing: 0;
+      width: 100%;
+    }
   }
 
   .MathJax {
