@@ -5,7 +5,7 @@
 <a {% if section.description %}title="{{ section.description }}" {% endif %}href="{{ section.permalink | safe }}">{{ section.title | safe }}</a>
 <span> / </span>
 {% endfor -%}
-<a {% if current.description %}title="{{ current.description }}" {% endif %}href="{{ current.permalink | safe }}">{{ current.title | safe }}</a>
+{{ current.title | safe }}
 {%- else -%}
 {%- set section = get_section(path="_index.md") -%}
 <a href="{{ config.base_url | safe }}">{{ section.title }}</a>
