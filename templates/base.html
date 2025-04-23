@@ -38,6 +38,7 @@
         {%- block header %}
         {%- include "header/leftbar.html" %}
         {%- include "header/breadcrumb.html" %}
+        {%- include "header/search.html" %}
         {%- include "header/theme.html" %}
         {%- include "header/rightbar.html" %}
         {%- endblock %}
@@ -72,4 +73,9 @@
       </main>
     </div>
   </body>
+  {% if config.build_search_index %}
+  <script src="{{ get_url(path="search_index.en.js") }}"></script>
+  <script src="{{ get_url(path="elasticlunr.min.js") }}"></script>
+  <script src="{{ get_url(path="search.js") }}"></script>
+  {% endif %}
 </html>

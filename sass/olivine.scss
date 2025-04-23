@@ -67,6 +67,7 @@ header {
   width: 100vw;
   height: $header-height;
   z-index: 1;
+
   >div {
     height: 100%;
     margin: 0 1rem;
@@ -81,6 +82,27 @@ header {
     }
     .olivine-icon {
       font-size: 120%;
+    }
+  }
+
+  #search {
+    width: 15em;
+    >input {
+      width: 100%;
+      padding: 0.5em 1em;
+      font-size: 90%;
+      color: var(--sidebar-text);
+      background-color: var(--header-bg);
+      border: 1px solid var(--sidebar-text);
+      border-radius: 1em;
+    }
+    >div {
+      position: absolute;
+      width: inherit;
+      background: var(--sidebar-bg);
+      >p {
+        margin: 1em 0.5em;
+      }
     }
   }
 }
