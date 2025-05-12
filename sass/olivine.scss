@@ -289,6 +289,41 @@ main {
   }
 }
 
+#help-window {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(1rem);
+  z-index: 2;
+  >div {
+    margin: auto;
+    padding: 3rem;
+    width: $main-max-width;
+    border: 3px solid var(--link);
+    border-radius: 1rem;
+    background-color: var(--body-bg);
+  }
+  #help-shortcuts {
+    margin: 2rem 0;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: auto auto auto auto auto;
+    row-gap: 1rem;
+    column-gap: 1rem;
+    code {
+      font-size: 120%;
+      border: 1px solid var(--body-text);
+      border-radius: 3px;
+      padding: 0.2em;
+      margin-right: 0.5em;
+    }
+  }
+}
+
 @media print {
   body {
     background-color: #fff;
