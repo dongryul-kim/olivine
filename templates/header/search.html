@@ -1,5 +1,7 @@
+{% if config.build_search_index %}
 <noscript><style>#search{display:none;}</style></noscript>
 <div id="search">
   <input id="search-input" type="search" placeholder="Search..."/>
   <div id="search-results"></div>
 </div>
+{% endif %}
