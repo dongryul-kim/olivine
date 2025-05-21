@@ -11,7 +11,7 @@ html[data-theme='light'] {
   --topbar-bg: #ccc;
   --link: #371;
   --link-hover: #6a4;
-  --admonish-bg: #ddd
+  --admonish-bg: #ddd;
 }
 
 html, html[data-theme='dark'] {
@@ -22,7 +22,7 @@ html, html[data-theme='dark'] {
   --topbar-bg: #333;
   --link: #9b7;
   --link-hover: #bf8;
-  --admonish-bg: #222
+  --admonish-bg: #222;
 }
 
 body {
@@ -239,6 +239,10 @@ main {
     overflow-x: auto;
     overflow-y: hidden;
   }
+  svg {
+    display: block;
+    margin: 1em auto;
+  }
 
   .olivine-admonish {
     margin: 1em 0;
@@ -287,6 +291,10 @@ main {
       margin-top: 0;
     }
   }
+}
+
+html[data-theme='dark'] main svg {
+  filter: invert(1);
 }
 
 #help-window {
