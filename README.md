@@ -7,10 +7,12 @@ base. Inspired by [Obsidian](https://obsidian.md).
 ## Features
 
 * Journaling
-* Forward links
 * Tags
 * Knowledge graph
+* Searching
 * Light/dark mode
+* Keyboard shortcuts
+* Backlinks
 
 ## Installation
 

@@ -11,6 +11,7 @@ anyways.
 Here is a list of features.
 * Header bar
   * Breadcrumbs
+  * Searching
   * Light and dark color schemes
 * Left bar
   * Navigation of folder structures
@@ -21,3 +22,4 @@ Here is a list of features.
   * Table of contents
   * Backlinks
   * Forward links
+* Keyboard shortcuts

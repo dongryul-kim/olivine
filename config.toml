@@ -3,7 +3,6 @@ description = "A theme for a personal knowledge base"
 base_url = "https://dongryul-kim.github.io/olivine"
 
 compile_sass = true
-#generate_feed = true
 taxonomies = [ { name = "tags" } ]
 build_search_index = true
 
@@ -15,11 +14,10 @@ smart_punctuation = true
 [link_checker]
 internal_level = "warn"
 
-# The following are the default values
 [extra.olivine]
 journal = true   # Enables journal functionality
-mathjax = true   # Enables MathJax
 graph = true     # Enables graph view
+mathjax = true   # Enables MathJax
+tikzjax = true   # Enables TikzJax
 extra_js = [ ]   # Extra javascript files, an array of strings
-
 

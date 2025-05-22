@@ -8,9 +8,9 @@ This page shows the basic styles and features of the theme.
 ## Text
 
 There are the standard *italic* and **strong** and ***italic strong*** fonts.
-There is also ~strikethrough~.
+There is also ~~strikethrough~~.
 
-## Sections (h2)
+## Sections (h2) {#sections-h2}
 
 The table of contents appear in the right sidebar (expanded and folded using the
 book icon). Here are some lower-level sections.
@@ -125,6 +125,20 @@ For example, the frontmatter for this page includes the following line.
 ```
 taxonomies.tags = ["markdown"]
 ```
+
+## Admonition blocks
+
+A `<div>` element with class `olivine-admonish` is styled to be inside a bubble.
+
+<div class="olivine-admonish">
+
+**Remark.** One way to create an admonition block is to write raw HTML in your
+markdown file. A better way is to write a simple shortcode that does for you.
+
+</div>
+
+At this point, it doesn't come with fancy headers or icons.
+
 
 [^2]: This footnote is at the bottom of the document. It is from the
     [Blockquotes and footnotes](#blockquotes-and-footnotes) section.
