@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="manifest" href="https://dongryul-kim.github.io/olivine/manifest.json">
+    <meta name="theme-color" content="#786"/>
+    <title>Olivine &middot; Styles demo</title>
+    <meta name="description" content="Styles demo - This page shows the basic styles and features of the theme.
+Text
+There are the standard italic and strong and italic str…"/>
+    <link rel="icon" type="image/x-icon" href="https://dongryul-kim.github.io/olivine/icon.svg">
+    <link href="https://dongryul-kim.github.io/olivine/olivine.css" rel="stylesheet"/>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/></noscript><script>
+  // Import Zola variables to Javascript
+  var olivine = {
+    base_url: "https://dongryul-kim.github.io/olivine",
+    lower: "https://dongryul-kim.github.io/olivine/docs/01-intro/",
+    higher: "https://dongryul-kim.github.io/olivine/docs/03-configuration/",
+  };
+</script>
+
+    <script src="https://dongryul-kim.github.io/olivine/olivine.js"></script>
+    
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      macros: {br: '\\\\'},
+      packages: {'[+]': ['amscd']}
+    },
+  };
+  for (oper of ['id', 'im', 'tr', 'coker', 'Hom', 'End', 'Aut', 'Ext', 'Tor',
+    'Gal', 'Spec', 'Spf']) {
+    MathJax.tex.macros[oper] = '\\operatorname{' + oper + '}';
+  }
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    
+<link rel="stylesheet" href="https://dongryul-kim.github.io/olivine/dist/tikzjax/fonts.css">
+<script src="https://dongryul-kim.github.io/olivine/dist/tikzjax/tikzjax.js" defer></script>
+
+
+  </head>
+
+  <body class="leftbar">
+    <script>
+      setSidebar();
+    </script>
+
+    <header>
+      <div><div><img src="https://dongryul-kim.github.io/olivine/icon.svg" width="24" height="32" onclick="toggleBar('leftbar')" alt="Olivine logo" style="display:block;"></img></div>
+<div dir="rtl" id="olivine-breadcrumb">
+<a href="https://dongryul-kim.github.io/olivine/">Olivine</a>
+<span> / </span>
+<a href="https://dongryul-kim.github.io/olivine/docs/">Documentation</a>
+<span> / </span>
+Styles demo
+</div>
+
+<noscript><style>#search{display:none;}</style></noscript>
+<div id="search">
+  <input id="search-input" type="search" placeholder="Search..."/>
+  <div id="search-results"></div>
+</div>
+
+<div onclick="toggleTheme()"><span class="olivine-icon"><i class="fa-solid fa-palette"></i></span></div>
+<div onclick="toggleBar('rightbar')"><span class="olivine-icon"><i class="fa-solid fa-book"></i></span></div>
+
+      </div>
+    </header>
+
+    <div class="sidebar" id="leftbar">
+      <div class="sidebar-content"><ul class="hidden" id="olivine-directory">
+  <li><a href=".."><span class="olivine-icon"><i class="fa-solid fa-turn-up"></i></span> ..</a></li>
+</ul>
+<hr noshade style="width:100%;">
+<ul>
+  <li><a id="olivine-today"><span class="olivine-icon"><i class="fa-regular fa-calendar-check"></i></span> Today</a></li>
+  <li><a id="olivine-yesterday"><span class="olivine-icon"><i class="fa-regular fa-calendar-minus"></i></span> Yesterday</a></li>
+  <li><a id="olivine-calendar" href="https://dongryul-kim.github.io/olivine/journal"><span class="olivine-icon"><i class="fa-regular fa-calendar-days"></i></span> All entries</a></li>
+  <script>setJournal();</script>
+</ul>
+
+
+<ul>
+  <li><a href="https://dongryul-kim.github.io/olivine/olivine-internal-graph/"><span class="olivine-icon"><i class="fa-solid fa-diagram-project"></i></span> Graph view</a></li>
+</ul>
+
+<ul><li><a href="https://dongryul-kim.github.io/olivine/tags/"><span class="olivine-icon"><i class="fa-solid fa-tags"></i></span>Tags</a></li></ul>
+
+      </div>
+    </div>
+
+    <div class="sidebar" id="rightbar">
+      <div class="sidebar-content">
+<div id="olivine-toc">
+<h3>Table of contents</h3>
+<ul>
+  <li>
+    <a href="https://dongryul-kim.github.io/olivine/docs/02-styles-demo/#text">Text</a>
+  </li>
+  <li>
+    <a href="https://dongryul-kim.github.io/olivine/docs/02-styles-demo/#sections-h2">Sections (h2)</a>
+    <li><ul>
+      <li>
+        <a href="https://dongryul-kim.github.io/olivine/docs/02-styles-demo/#this-is-a-subsection-h3">This is a subsection (h3)</a>
+      </li>
+    </ul></li>
+  </li>
+  <li>
+    <a href="https://dongryul-kim.github.io/olivine/docs/02-styles-demo/#lists-and-links">Lists and links</a>
+  </li>
+  <li>
+    <a href="https://dongryul-kim.github.io/olivine/docs/02-styles-demo/#tables-and-images">Tables and images</a>
+  </li>
+  <li>
+    <a href="https://dongryul-kim.github.io/olivine/docs/02-styles-demo/#code-and-math">Code and math</a>
+  </li>
+  <li>
+    <a href="https://dongryul-kim.github.io/olivine/docs/02-styles-demo/#blockquotes-and-footnotes">Blockquotes and footnotes</a>
+  </li>
+  <li>
+    <a href="https://dongryul-kim.github.io/olivine/docs/02-styles-demo/#tags">Tags</a>
+  </li>
+  <li>
+    <a href="https://dongryul-kim.github.io/olivine/docs/02-styles-demo/#admonition-blocks">Admonition blocks</a>
+  </li>
+</ul>
+</div>
+
+<div id="olivine-backlinks">
+<h3>Backlinks</h3>
+<ul>
+  <li><a href="https:&#x2F;&#x2F;dongryul-kim.github.io&#x2F;olivine&#x2F;docs&#x2F;02-styles-demo&#x2F;">Styles demo</a></li>
+</ul>
+</div>
+
+<div id="olivine-forward-links">
+<h3>Forward links</h3>
+<ul id="olivine-forward-link-lists">
+</ul>
+</div>
+<script>
+forward_list = [
+ "/docs/",  "/docs/02-styles-demo/#sections-h2",  "/tags/olivine/",  "/docs/02-styles-demo/#blockquotes-and-footnotes", 
+];
+hydrateForward("olivine-forward-link-lists", forward_list,
+"https://dongryul-kim.github.io/olivine/olivine-internal-sitemap/");
+</script>
+
+      </div>
+    </div>
+
+    <div id="main-area">
+      <main><h1><a title="Getting started" href="https:&#x2F;&#x2F;dongryul-kim.github.io&#x2F;olivine&#x2F;docs&#x2F;01-intro&#x2F;"><span class="olivine-icon"><i class="fa-solid fa-angle-left"></i></span></a><span>Styles demo</span><a title="Configuration" href="https:&#x2F;&#x2F;dongryul-kim.github.io&#x2F;olivine&#x2F;docs&#x2F;03-configuration&#x2F;"><span class="olivine-icon"><i class="fa-solid fa-angle-right"></i></span></a></h1>
+
+<span class="olivine-tag"><a href="https://dongryul-kim.github.io/olivine/tags/markdown/">#markdown</a></span>
+<p>This page shows the basic styles and features of the theme.</p>
+<h2 id="text">Text</h2>
+<p>There are the standard <em>italic</em> and <strong>strong</strong> and <em><strong>italic strong</strong></em> fonts.
+There is also <del>strikethrough</del>.</p>
+<h2 id="sections-h2">Sections (h2)</h2>
+<p>The table of contents appear in the right sidebar (expanded and folded using the
+book icon). Here are some lower-level sections.</p>
+<h3 id="this-is-a-subsection-h3">This is a subsection (h3)</h3>
+<p>Some random text in a subsection</p>
+<h4 id="this-is-a-subsubsection-h4">This is a subsubsection (h4)</h4>
+<p>Some other random text in a subsubsection. Anything below this is probably not
+that useful.</p>
+<hr />
+<p>We can also insert a break line.</p>
+<h2 id="lists-and-links">Lists and links</h2>
+<p>Here are some numbered and bulleted lists.</p>
+<ul>
+<li>A first bullet item</li>
+<li>A second bullet item
+<ul>
+<li>A first nested bullet item</li>
+<li>A second nested bullet item
+<ul>
+<li>A first nested nested bullet item</li>
+</ul>
+</li>
+<li>A third nested bullet item</li>
+</ul>
+</li>
+</ul>
+<p>Links can be created using the Markdown syntax <code>[link name](link url)</code>.</p>
+<ol>
+<li>Here is an external link to the
+<a rel="noopener" target="_blank" href="https://github.com/dongryul-kim/olivine">Github repository</a>.</li>
+<li>Here is an internal link to <a href="https://dongryul-kim.github.io/olivine/docs/">documentation page</a>.</li>
+<li>We can also link to sections like <a href="https://dongryul-kim.github.io/olivine/docs/02-styles-demo/#sections-h2">Sections</a>, which is the
+previous section.</li>
+</ol>
+<p>Items in lists can have checkboxes.</p>
+<ol>
+<li><input disabled="" type="checkbox" checked=""/>
+Write this todo list.</li>
+<li><input disabled="" type="checkbox"/>
+Some big project that has multiple tasks.
+<ul>
+<li><input disabled="" type="checkbox"/>
+This is not finished.</li>
+<li><input disabled="" type="checkbox" checked=""/>
+This is finished.</li>
+</ul>
+</li>
+</ol>
+<h2 id="tables-and-images">Tables and images</h2>
+<p>Here are some physical properties of minerals.</p>
+<table><thead><tr><th style="text-align: center">Mineral</th><th style="text-align: center">Chemical composition</th><th style="text-align: center">Melting temperature</th></tr></thead><tbody>
+<tr><td style="text-align: center">Olivine</td><td style="text-align: center">(Mg,Fe)₂SiO₄</td><td style="text-align: center">1200–1900℃</td></tr>
+<tr><td style="text-align: center">Obsidian</td><td style="text-align: center">SiO₂, MgO, Fe₃O₄</td><td style="text-align: center">700–900℃</td></tr>
+</tbody></table>
+<p>In Markdown, an image is an <code>&lt;img&gt;</code> tag with surrounding text. For example, <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Olivine-gem7-10a.jpg" alt="An image of olivine" />
+can be part of a sentence.</p>
+<h2 id="code-and-math">Code and math</h2>
+<p>Both inline code <code>sudo rm -rf /</code> as well as (syntax-colored) block code</p>
+<pre data-lang="c" style="background-color:#2b303b;color:#c0c5ce;" class="language-c "><code class="language-c" data-lang="c"><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">fibonacci</span><span>(</span><span style="color:#b48ead;">int </span><span style="color:#bf616a;">n</span><span>) {
+</span><span>    </span><span style="color:#b48ead;">if </span><span>(n = </span><span style="color:#d08770;">0</span><span>) </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span>;
+</span><span>    </span><span style="color:#b48ead;">if </span><span>(n = </span><span style="color:#d08770;">1</span><span>) </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">1</span><span>;
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">fibonacci</span><span>(n-</span><span style="color:#d08770;">1</span><span>) + </span><span style="color:#bf616a;">fibonacci</span><span>(n-</span><span style="color:#d08770;">2</span><span>);
+</span><span>}
+</span></code></pre>
+<p>are supported. We can also include line numbers and highlight lines</p>
+<pre data-linenos data-lang="c" style="background-color:#2b303b;color:#c0c5ce;" class="language-c "><code class="language-c" data-lang="c"><table><tbody><tr><td>1</td><td><span style="color:#b48ead;">int </span><span style="color:#8fa1b3;">fibonacci</span><span>(</span><span style="color:#b48ead;">int </span><span style="color:#bf616a;">n</span><span>) {
+</span></td></tr><tr><td><mark style="background-color:#65737e30;">2</mark></td><td><mark style="background-color:#65737e30;"><span>    </span><span style="color:#b48ead;">if </span><span>(n = </span><span style="color:#d08770;">0</span><span>) </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">0</span><span>;
+</span></mark></td></tr><tr><td><mark style="background-color:#65737e30;">3</mark></td><td><mark style="background-color:#65737e30;"><span>    </span><span style="color:#b48ead;">if </span><span>(n = </span><span style="color:#d08770;">1</span><span>) </span><span style="color:#b48ead;">return </span><span style="color:#d08770;">1</span><span>;
+</span></mark></td></tr><tr><td>4</td><td><span>    </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">fibonacci</span><span>(n-</span><span style="color:#d08770;">1</span><span>) + </span><span style="color:#bf616a;">fibonacci</span><span>(n-</span><span style="color:#d08770;">2</span><span>);
+</span></td></tr><tr><td>5</td><td><span>}
+</span></td></tr></tbody></table></code></pre>
+<p>by adding in the options <code>linenos</code> and <code>hl_lines</code>.</p>
+<p>Inline math such as $a^2 + b^2 = c^2$ can be used, and there are also
+displayed equations
+$$ \Theta \colon \mathbf{Sh}(\mathsf{G}, \mathsf{X})_ E^\lozenge
+\times_{\mathrm{Bun}_ G} \mathrm{Gr}_ {G,\lbrace \mu^{-1} \rbrace,E} \to
+\mathbf{Sh}(\mathsf{G}, \mathsf{X})_ E^\lozenge. $$
+However, to use this feature, the <code>config.extra.olivine.mathjax</code> option needs to
+be enabled.</p>
+<h2 id="blockquotes-and-footnotes">Blockquotes and footnotes</h2>
+<p>The following is a quote from Alexander Grothendieck’s <em>Récoltes et
+semailles</em>.</p>
+<blockquote>
+<p>The unknown thing to be known appeared to me as some stretch of earth or hard
+marl, resisting penetration… the sea advances insensibly in silence, nothing
+seems to happen, nothing moves, the water is so far off you hardly hear it…
+yet it finally surrounds the resistant substance.</p>
+</blockquote>
+<p>Here is a footnote<sup class="footnote-reference"><a href="#1">1</a></sup> to a text. As you can see, footnotes can be placed
+anywhere<sup class="footnote-reference"><a href="#2">2</a></sup> in the document.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>This footnote is at the end of the section, but it can also go at the
+bottom of the document.</p>
+</div>
+<h2 id="tags">Tags</h2>
+<p>There is also a feature of creating a link to a tag. <span class="olivine-tag"><a href="https://dongryul-kim.github.io/olivine/tags/olivine/">#olivine</a></span>
+
+Note that this is a one-sided link, meaning that including this link does not
+make this page have this tag. This is implemented as a shortcode.</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>{{ tag(name=&quot;olivine&quot;) }}
+</span></code></pre>
+<p>To add the tag to a page, use the option <code>taxonomies.tags</code> in the frontmatter.
+For example, the frontmatter for this page includes the following line.</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>taxonomies.tags = [&quot;markdown&quot;]
+</span></code></pre>
+<h2 id="admonition-blocks">Admonition blocks</h2>
+<p>A <code>&lt;div&gt;</code> element with class <code>olivine-admonish</code> is styled to be inside a bubble.</p>
+<div class="olivine-admonish">
+<p><strong>Remark.</strong> One way to create an admonition block is to write raw HTML in your
+markdown file. A better way is to write a simple shortcode that does for you.</p>
+</div>
+<p>At this point, it doesn’t come with fancy headers or icons.</p>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>This footnote is at the bottom of the document. It is from the
+<a href="https://dongryul-kim.github.io/olivine/docs/02-styles-demo/#blockquotes-and-footnotes">Blockquotes and footnotes</a> section.</p>
+</div>
+
+
+
+      </main>
+    </div>
+    <div id="help-window" style="display:none;">
+  <div>
+    <h1>Keyboard shortcuts</h1>
+    <div id="help-shortcuts">
+      <div><code>j</code> scroll down</div>
+      <div><code>k</code> scroll up</div>
+      <div><code>h</code> go to previous sibling</div>
+      <div><code>l</code> go to next sibling</div>
+      <div><code>u</code> go to parent</div>
+      <div><code>H</code> go to root</div>
+      <div><code>p</code> go to previous page</div>
+      <div><code>n</code> go to next page</div>
+      <div><code>[</code> toggle left sidebar</div>
+      <div><code>]</code> toggle right sidebar</div>
+      <div><code>?</code> toggle keyboard shortcuts</div>
+      <div><code>/</code> focus searchbar</div>
+      <div><code>Esc</code> focus document</div>
+    </div>
+  </div>
+</div>
+
+  </body>
+  
+  <script src="https://dongryul-kim.github.io/olivine/search_index.en.js"></script>
+  <script src="https://dongryul-kim.github.io/olivine/elasticlunr.min.js"></script>
+  <script src="https://dongryul-kim.github.io/olivine/search.js"></script>
+  
+</html>

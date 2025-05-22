@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="manifest" href="https://dongryul-kim.github.io/olivine/manifest.json">
+    <meta name="theme-color" content="#786"/>
+    <title>Olivine &middot; Journal</title>
+    <meta name="description" content="Journal"/>
+    <link rel="icon" type="image/x-icon" href="https://dongryul-kim.github.io/olivine/icon.svg">
+
+    <link href="https://dongryul-kim.github.io/olivine/olivine.css" rel="stylesheet"/>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/></noscript>
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/js-year-calendar@latest/dist/js-year-calendar.min.css" />
+<script>
+  // Import Zola variables to Javascript
+  var olivine = {
+    base_url: "https://dongryul-kim.github.io/olivine",
+    
+    
+  };
+</script>
+
+
+    <script src="https://dongryul-kim.github.io/olivine/olivine.js"></script>
+    
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      macros: {br: '\\\\'},
+      packages: {'[+]': ['amscd']}
+    },
+  };
+  for (oper of ['id', 'im', 'tr', 'coker', 'Hom', 'End', 'Aut', 'Ext', 'Tor',
+    'Gal', 'Spec', 'Spf']) {
+    MathJax.tex.macros[oper] = '\\operatorname{' + oper + '}';
+  }
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    
+<link rel="stylesheet" href="https://dongryul-kim.github.io/olivine/dist/tikzjax/fonts.css">
+<script src="https://dongryul-kim.github.io/olivine/dist/tikzjax/tikzjax.js" defer></script>
+
+
+<script src="https://unpkg.com/js-year-calendar@latest/dist/js-year-calendar.min.js"></script>
+
+  </head>
+
+  <body class="leftbar">
+    <script>
+      setSidebar();
+    </script>
+
+    <header>
+      <div><div><img src="https://dongryul-kim.github.io/olivine/icon.svg" width="24" height="32" onclick="toggleBar('leftbar')" alt="Olivine logo" style="display:block;"></img></div>
+<div dir="rtl" id="olivine-breadcrumb">
+<a href="https://dongryul-kim.github.io/olivine/">Olivine</a>
+<span> / </span>
+Journal
+</div>
+
+<noscript><style>#search{display:none;}</style></noscript>
+<div id="search">
+  <input id="search-input" type="search" placeholder="Search..."/>
+  <div id="search-results"></div>
+</div>
+
+<div onclick="toggleTheme()"><span class="olivine-icon"><i class="fa-solid fa-palette"></i></span></div>
+<div onclick="toggleBar('rightbar')"><span class="olivine-icon"><i class="fa-solid fa-book"></i></span></div>
+
+      </div>
+    </header>
+
+    <div class="sidebar" id="leftbar">
+      <div class="sidebar-content"><ul class="hidden" id="olivine-directory">
+  <li><a href=".."><span class="olivine-icon"><i class="fa-solid fa-turn-up"></i></span> ..</a></li>
+</ul>
+<hr noshade style="width:100%;">
+<ul>
+  <li><a id="olivine-today"><span class="olivine-icon"><i class="fa-regular fa-calendar-check"></i></span> Today</a></li>
+  <li><a id="olivine-yesterday"><span class="olivine-icon"><i class="fa-regular fa-calendar-minus"></i></span> Yesterday</a></li>
+  <li><a id="olivine-calendar" href="https://dongryul-kim.github.io/olivine/journal"><span class="olivine-icon"><i class="fa-regular fa-calendar-days"></i></span> All entries</a></li>
+  <script>setJournal();</script>
+</ul>
+
+
+<ul>
+  <li><a href="https://dongryul-kim.github.io/olivine/olivine-internal-graph/"><span class="olivine-icon"><i class="fa-solid fa-diagram-project"></i></span> Graph view</a></li>
+</ul>
+
+<ul><li><a href="https://dongryul-kim.github.io/olivine/tags/"><span class="olivine-icon"><i class="fa-solid fa-tags"></i></span>Tags</a></li></ul>
+
+      </div>
+    </div>
+
+    <div class="sidebar" id="rightbar">
+      <div class="sidebar-content">
+
+
+
+      </div>
+    </div>
+
+    <div id="main-area">
+      <main>
+<h1>Journal</h1>
+<div id="calendar"></div>
+<style>
+:root {
+  --date-bg: color-mix(in srgb,var(--link),var(--body-bg) 80%);
+  --date-bg-hover: color-mix(in srgb,var(--link),var(--body-bg) 50%);
+}
+table.month td.day .day-content:hover {
+  background: transparent;
+  cursor: pointer;
+}
+</style>
+<script>
+var journalEntries = [
+  ];
+dataSource = journalEntries.map((d) => {
+  const date = new Date(parseInt(d.slice(0,4)), parseInt(d.slice(5,7))-1, parseInt(d.slice(8,10)));
+  return { color: 'var(--date-bg)', startDate: date, endDate: date };
+});
+var calendar = new Calendar('#calendar', {
+  dataSource, 
+  style: 'background',
+  mouseOnDay: function(e) {
+    if (e.events.length > 0)
+      e.element.style.backgroundColor = 'var(--date-bg-hover)';
+  },
+  mouseOutDay: function(e) {
+    if (e.events.length > 0)
+      e.element.style.backgroundColor = 'var(--date-bg)';
+  },
+  clickDay: function(e) {
+    if (e.events.length > 0) {
+      console.log(e.date);
+      console.log(e.date.getFullYear());
+      window.location.href = olivine.base_url + '/journal/' +
+        e.date.getFullYear().toString() + '-' +
+        (e.date.getMonth()+1).toString().padStart(2,'0') + '-' +
+        e.date.getDate().toString().padStart(2,'0') + '/';
+    }
+  }
+});
+</script>
+
+
+
+      </main>
+    </div>
+    <div id="help-window" style="display:none;">
+  <div>
+    <h1>Keyboard shortcuts</h1>
+    <div id="help-shortcuts">
+      <div><code>j</code> scroll down</div>
+      <div><code>k</code> scroll up</div>
+      <div><code>h</code> go to previous sibling</div>
+      <div><code>l</code> go to next sibling</div>
+      <div><code>u</code> go to parent</div>
+      <div><code>H</code> go to root</div>
+      <div><code>p</code> go to previous page</div>
+      <div><code>n</code> go to next page</div>
+      <div><code>[</code> toggle left sidebar</div>
+      <div><code>]</code> toggle right sidebar</div>
+      <div><code>?</code> toggle keyboard shortcuts</div>
+      <div><code>/</code> focus searchbar</div>
+      <div><code>Esc</code> focus document</div>
+    </div>
+  </div>
+</div>
+
+  </body>
+  
+  <script src="https://dongryul-kim.github.io/olivine/search_index.en.js"></script>
+  <script src="https://dongryul-kim.github.io/olivine/elasticlunr.min.js"></script>
+  <script src="https://dongryul-kim.github.io/olivine/search.js"></script>
+  
+</html>

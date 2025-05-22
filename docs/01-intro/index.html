@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="manifest" href="https://dongryul-kim.github.io/olivine/manifest.json">
+    <meta name="theme-color" content="#786"/>
+    <title>Olivine &middot; Getting started</title>
+    <meta name="description" content="Getting started - To get started, follow the instructions below.
+Installing Zola
+Check out the Zola project website for instructions on in…"/>
+    <link rel="icon" type="image/x-icon" href="https://dongryul-kim.github.io/olivine/icon.svg">
+    <link href="https://dongryul-kim.github.io/olivine/olivine.css" rel="stylesheet"/>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/></noscript><script>
+  // Import Zola variables to Javascript
+  var olivine = {
+    base_url: "https://dongryul-kim.github.io/olivine",
+    
+    higher: "https://dongryul-kim.github.io/olivine/docs/02-styles-demo/",
+  };
+</script>
+
+    <script src="https://dongryul-kim.github.io/olivine/olivine.js"></script>
+    
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      macros: {br: '\\\\'},
+      packages: {'[+]': ['amscd']}
+    },
+  };
+  for (oper of ['id', 'im', 'tr', 'coker', 'Hom', 'End', 'Aut', 'Ext', 'Tor',
+    'Gal', 'Spec', 'Spf']) {
+    MathJax.tex.macros[oper] = '\\operatorname{' + oper + '}';
+  }
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    
+<link rel="stylesheet" href="https://dongryul-kim.github.io/olivine/dist/tikzjax/fonts.css">
+<script src="https://dongryul-kim.github.io/olivine/dist/tikzjax/tikzjax.js" defer></script>
+
+
+  </head>
+
+  <body class="leftbar">
+    <script>
+      setSidebar();
+    </script>
+
+    <header>
+      <div><div><img src="https://dongryul-kim.github.io/olivine/icon.svg" width="24" height="32" onclick="toggleBar('leftbar')" alt="Olivine logo" style="display:block;"></img></div>
+<div dir="rtl" id="olivine-breadcrumb">
+<a href="https://dongryul-kim.github.io/olivine/">Olivine</a>
+<span> / </span>
+<a href="https://dongryul-kim.github.io/olivine/docs/">Documentation</a>
+<span> / </span>
+Getting started
+</div>
+
+<noscript><style>#search{display:none;}</style></noscript>
+<div id="search">
+  <input id="search-input" type="search" placeholder="Search..."/>
+  <div id="search-results"></div>
+</div>
+
+<div onclick="toggleTheme()"><span class="olivine-icon"><i class="fa-solid fa-palette"></i></span></div>
+<div onclick="toggleBar('rightbar')"><span class="olivine-icon"><i class="fa-solid fa-book"></i></span></div>
+
+      </div>
+    </header>
+
+    <div class="sidebar" id="leftbar">
+      <div class="sidebar-content"><ul class="hidden" id="olivine-directory">
+  <li><a href=".."><span class="olivine-icon"><i class="fa-solid fa-turn-up"></i></span> ..</a></li>
+</ul>
+<hr noshade style="width:100%;">
+<ul>
+  <li><a id="olivine-today"><span class="olivine-icon"><i class="fa-regular fa-calendar-check"></i></span> Today</a></li>
+  <li><a id="olivine-yesterday"><span class="olivine-icon"><i class="fa-regular fa-calendar-minus"></i></span> Yesterday</a></li>
+  <li><a id="olivine-calendar" href="https://dongryul-kim.github.io/olivine/journal"><span class="olivine-icon"><i class="fa-regular fa-calendar-days"></i></span> All entries</a></li>
+  <script>setJournal();</script>
+</ul>
+
+
+<ul>
+  <li><a href="https://dongryul-kim.github.io/olivine/olivine-internal-graph/"><span class="olivine-icon"><i class="fa-solid fa-diagram-project"></i></span> Graph view</a></li>
+</ul>
+
+<ul><li><a href="https://dongryul-kim.github.io/olivine/tags/"><span class="olivine-icon"><i class="fa-solid fa-tags"></i></span>Tags</a></li></ul>
+
+      </div>
+    </div>
+
+    <div class="sidebar" id="rightbar">
+      <div class="sidebar-content">
+<div id="olivine-toc">
+<h3>Table of contents</h3>
+<ul>
+  <li>
+    <a href="https://dongryul-kim.github.io/olivine/docs/01-intro/#installing-zola">Installing Zola</a>
+  </li>
+  <li>
+    <a href="https://dongryul-kim.github.io/olivine/docs/01-intro/#installing-olivine">Installing Olivine</a>
+    <li><ul>
+      <li>
+        <a href="https://dongryul-kim.github.io/olivine/docs/01-intro/#option-1-template-repository">Option 1: template repository</a>
+      </li>
+      <li>
+        <a href="https://dongryul-kim.github.io/olivine/docs/01-intro/#option-2-manual-configuration">Option 2: manual configuration</a>
+      </li>
+    </ul></li>
+  </li>
+</ul>
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div id="main-area">
+      <main><h1><span>Getting started</span><a title="Styles demo" href="https:&#x2F;&#x2F;dongryul-kim.github.io&#x2F;olivine&#x2F;docs&#x2F;02-styles-demo&#x2F;"><span class="olivine-icon"><i class="fa-solid fa-angle-right"></i></span></a></h1>
+
+<span class="olivine-tag"><a href="https://dongryul-kim.github.io/olivine/tags/olivine/">#olivine</a></span>
+<p>To get started, follow the instructions below.</p>
+<h2 id="installing-zola">Installing Zola</h2>
+<p>Check out the Zola project website for instructions on installing it.</p>
+<ul>
+<li><a rel="noopener" target="_blank" href="https://github.com/getzola/zola">Github repository</a></li>
+<li><a rel="noopener" target="_blank" href="https://www.getzola.org/">Zola documentation</a></li>
+<li><a rel="noopener" target="_blank" href="https://keats.github.io/tera/">Tera documentation</a></li>
+<li><a rel="noopener" target="_blank" href="https://zola.discourse.group/">Zola community forum</a></li>
+</ul>
+<h2 id="installing-olivine">Installing Olivine</h2>
+<p>You can use either clone a template repository or manually set up the theme.</p>
+<h3 id="option-1-template-repository">Option 1: template repository</h3>
+<p>Simply clone the template repository.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">$</span><span> git clone git@github.com:dongryul-kim/olivine-template.git &lt;your-folder-name&gt;
+</span></code></pre>
+<h3 id="option-2-manual-configuration">Option 2: manual configuration</h3>
+<p>There is a page in the Zola documentation on <a rel="noopener" target="_blank" href="https://www.getzola.org/documentation/themes/installing-and-using-themes/">installing and using
+themes</a>.</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">$</span><span> mkdir &lt;your-folder-name&gt;
+</span><span style="color:#bf616a;">$</span><span> cd &lt;your-folder-name&gt;
+</span><span style="color:#bf616a;">$</span><span> zola init
+</span><span style="color:#bf616a;">$</span><span> git clone git@github.com:dongryul-kim/olivine.git themes/olivine
+</span><span style="color:#65737e;"># Add the option theme = &quot;olivine&quot; to config.toml
+</span><span style="color:#bf616a;">$</span><span> zola serve
+</span><span style="color:#65737e;"># Navigate to localhost:1111 on the web browser
+</span></code></pre>
+<p>Because of some limitations, there are additional steps one has to take. Create
+a file a named <code>content/olivine-internal-graph.md</code> with contents</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>+++
+</span><span>title = &quot;Graph&quot;
+</span><span>template = &quot;internal/graph.html&quot;
+</span><span>+++
+</span></code></pre>
+<p>and also a file named <code>content/olivine-internal-sitemap.md</code> with contents</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>+++
+</span><span>title = &quot;Sitemap&quot;
+</span><span>template = &quot;internal/sitemap.html&quot;
+</span><span>+++
+</span></code></pre>
+
+
+
+      </main>
+    </div>
+    <div id="help-window" style="display:none;">
+  <div>
+    <h1>Keyboard shortcuts</h1>
+    <div id="help-shortcuts">
+      <div><code>j</code> scroll down</div>
+      <div><code>k</code> scroll up</div>
+      <div><code>h</code> go to previous sibling</div>
+      <div><code>l</code> go to next sibling</div>
+      <div><code>u</code> go to parent</div>
+      <div><code>H</code> go to root</div>
+      <div><code>p</code> go to previous page</div>
+      <div><code>n</code> go to next page</div>
+      <div><code>[</code> toggle left sidebar</div>
+      <div><code>]</code> toggle right sidebar</div>
+      <div><code>?</code> toggle keyboard shortcuts</div>
+      <div><code>/</code> focus searchbar</div>
+      <div><code>Esc</code> focus document</div>
+    </div>
+  </div>
+</div>
+
+  </body>
+  
+  <script src="https://dongryul-kim.github.io/olivine/search_index.en.js"></script>
+  <script src="https://dongryul-kim.github.io/olivine/elasticlunr.min.js"></script>
+  <script src="https://dongryul-kim.github.io/olivine/search.js"></script>
+  
+</html>
