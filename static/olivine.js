@@ -111,6 +111,7 @@ function directoryExpand() {
 
 // Hotkeys
 document.addEventListener("keydown", function(e) {
+  if (e.altKey || e.ctrlKey || e.metaKey) return;
   if (e.key == 'Escape') {
     document.activeElement.blur();
     document.getElementById("search-results").innerHTML = "";
@@ -163,6 +164,7 @@ document.addEventListener("keydown", function(e) {
   }
 });
 document.addEventListener("keyup", function(e) {
+  if (e.altKey || e.ctrlKey || e.metaKey) return;
   if (e.target.nodeName != "BODY") return;
   if (e.key == '/')
     document.getElementById("search-input").focus();
