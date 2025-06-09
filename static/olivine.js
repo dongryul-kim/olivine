@@ -31,6 +31,8 @@ function setSidebar() {
     var sidebar = sessionStorage.getItem(bartype);
     if (sidebar === "true")
       document.body.classList.add(bartype);
+    else
+      document.body.classList.remove(bartype);
   }
 }
 
