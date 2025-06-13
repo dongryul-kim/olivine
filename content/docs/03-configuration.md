@@ -20,3 +20,11 @@ documentation](https://www.getzola.org/documentation/getting-started/configurati
 first! There is already of ton of configuration options built directly into
 Zola.
 
+## Sections
+
+Here are the configuration options for sections, together with the default
+values.
+```
+extra.siblings = false  # Adds a button to navigate to siblings
+```
+
