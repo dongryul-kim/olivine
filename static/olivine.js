@@ -114,7 +114,8 @@ function directoryExpand() {
 // Hotkeys
 document.addEventListener("keydown", function(e) {
   if (e.altKey || e.ctrlKey || e.metaKey) return;
-  if (e.key == 'Escape') {
+  if (e.key === "Shift") return;
+  if (e.key === "Escape") {
     document.activeElement.blur();
     document.getElementById("search-results").innerHTML = "";
     document.getElementById("help-window").style.display = "none";
@@ -144,7 +145,7 @@ document.addEventListener("keydown", function(e) {
       if (!newUrl.startsWith(olivine.base_url)) break;
       window.location.href = newUrl;
       break;
-    case 'H':
+    case 'r':
       window.location.href = olivine.base_url;
       break;
     case 'p':
@@ -162,6 +163,9 @@ document.addEventListener("keydown", function(e) {
     case '?':
       let helpElem = document.getElementById("help-window");
       helpElem.style.display = (helpElem.style.display === 'none') ? '' : 'none';
+      break;
+    case 't':
+      toggleTheme();
       break;
   }
 });
