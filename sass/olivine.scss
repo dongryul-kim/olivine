@@ -211,6 +211,7 @@ main {
 
   pre {
     padding: 0.5em;
+    white-space: pre-wrap;
     code[data-lang]::before {
       content: "[ " attr(data-lang) " ]";
       display: block;
