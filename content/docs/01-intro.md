@@ -23,7 +23,7 @@ You can use either clone a template repository or manually set up the theme.
 Simply clone the template repository.
 
 ```bash
-$ git clone git@github.com:dongryul-kim/olivine-template.git <your-folder-name>
+git clone --depth 1 --recurse-submodules git@github.com:dongryul-kim/olivine-quickstart.git <your-folder-name>
 ```
 
 ### Option 2: manual configuration
@@ -32,12 +32,12 @@ There is a page in the Zola documentation on [installing and using
 themes](https://www.getzola.org/documentation/themes/installing-and-using-themes/).
 
 ```bash
-$ mkdir <your-folder-name>
-$ cd <your-folder-name>
-$ zola init
-$ git clone git@github.com:dongryul-kim/olivine.git themes/olivine
+mkdir <your-folder-name>
+cd <your-folder-name>
+zola init
+git clone git@github.com:dongryul-kim/olivine.git themes/olivine
 # Add the option theme = "olivine" to config.toml
-$ zola serve
+zola serve
 # Navigate to localhost:1111 on the web browser
 ```
 
@@ -49,11 +49,19 @@ title = "Graph"
 template = "internal/graph.html"
 +++
 ```
-and also a file named `content/olivine-internal-sitemap.md` with contents
+a file named `content/olivine-internal-sitemap.md` with contents
 ```
 +++
 title = "Sitemap"
 template = "internal/sitemap.html"
++++
+```
+and also a file named `content/journal/_index.md` with contents
+```
++++
+title = "Journal"
+template = "internal/journal.html"
+extra.siblings = true
 +++
 ```
 

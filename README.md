@@ -16,6 +16,16 @@ base. Inspired by [Obsidian](https://obsidian.md).
 
 ## Installation
 
+The easiest way to install Olivine is to use the [quickstart
+repository](https://github.com/dongryul-kim/olivine-quickstart).
+
+```
+git clone --depth 1 --recurse-submodules git@github.com:dongryul-kim/olivine-quickstart.git <your-folder-name>
+```
+
+### Manual installation
+
+You can also use the standard method for installing a Zola theme.
 Please follow the Zola documentation on [installing and using
 themes](https://www.getzola.org/documentation/themes/installing-and-using-themes/).
 
@@ -27,11 +37,19 @@ title = "Graph"
 template = "internal/graph.html"
 +++
 ```
-and also a file named `content/olivine-internal-sitemap.md` with contents:
+a file named `content/olivine-internal-sitemap.md` with contents:
 ```
 +++
 title = "Sitemap"
 template = "internal/sitemap.html"
++++
+```
+and a file named `content/journal/_index.md` with contents:
+```
++++
+title = "Journal"
+template = "internal/journal.html"
+extra.siblings = true
 +++
 ```
 
