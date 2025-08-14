@@ -134,6 +134,12 @@ document.addEventListener("keydown", function(e) {
       if (!e.repeat) window.scrollBy({top: scrollDist, behavior: "smooth"});
       else window.scrollBy({top: scrollDist/2, behavior: "instant"});
       break;
+    case 'g':
+      window.scrollTo({top: 0, behavior: "smooth"});
+      break;
+    case 'G':
+      window.scrollTo({top: document.body.scrollHeight, behavior: "smooth"});
+      break;
     case 'h':
       if (olivine.lower !== undefined)
         window.location.href = olivine.lower;
@@ -149,14 +155,17 @@ document.addEventListener("keydown", function(e) {
       if (!newUrl.startsWith(olivine.base_url)) break;
       window.location.href = newUrl;
       break;
-    case 'r':
+    case 'U':
       window.location.href = olivine.base_url;
       break;
-    case 'p':
+    case 'H':
       history.back();
       break;
-    case 'n':
+    case 'L':
       history.forward();
+      break;
+    case 'r':
+      window.location.reload();
       break;
     case '[':
       toggleBar("leftbar");
