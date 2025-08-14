@@ -333,6 +333,16 @@ html[data-theme='dark'] main svg {
   }
 }
 
+span.goelems {
+  display: block;
+  position: fixed;
+  z-index: 100;
+  font: 1rem monospace;
+  color: black;
+  background-color: #ae7;
+  border: 2px solid black;
+}
+
 @media print {
   body {
     background-color: #fff;
