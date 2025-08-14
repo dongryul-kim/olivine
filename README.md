@@ -4,6 +4,8 @@
 A simple [Zola](https://github.com/getzola/zola) theme for a personal knowledge
 base. Inspired by [Obsidian](https://obsidian.md).
 
+![Screenshot of example page](screenshot.png)
+
 ## Features
 
 * Journaling
