@@ -111,7 +111,7 @@ header {
   margin-top: $header-height;
   padding: 0 2em;
   display: flex;
-  transition: margin 0.5s;
+  transition: margin 0.3s;
 }
 
 .sidebar {
@@ -127,13 +127,13 @@ header {
 #leftbar {
   width: $leftbar-width;
   left: -$leftbar-width;
-  transition: left 0.5s;
+  transition: left 0.3s;
 }
 
 #rightbar {
   width: $rightbar-width;
   right: -$rightbar-width;
-  transition: right 0.5s;
+  transition: right 0.3s;
   font-size: 90%;
   li {
     margin: 0.5em;
