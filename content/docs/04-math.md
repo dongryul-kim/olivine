@@ -47,11 +47,11 @@ Such Huber pairs $(R, R^+)$ for which this map is a homeomorphism is called an
 a *v-cover* when for every valuation ring $V$ and a map $\operatorname{Spec} V
 \to T$ there is an extension $V \subseteq W$ of valuation rings and a
 commutative diagram
-<script type="text/tikz">
-\usepackage{amsmath} \usepackage{tikz-cd} \begin{document} \Large \begin{tikzcd}
+<script type="text/tikz" data-tex-packages='{"amsmath":"", "tikz-cd":""}'>
+\Large \begin{tikzcd}
 \operatorname{Spec} W \arrow{r} \arrow{d} & S \arrow[two heads]{d} \\
 \operatorname{Spec} V \arrow{r} & T.
-\end{tikzcd} \end{document}
+\end{tikzcd}
 </script>
 </div>
 
