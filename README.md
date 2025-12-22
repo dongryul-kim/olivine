@@ -55,3 +55,11 @@ extra.siblings = true
 +++
 ```
 
+## Acknowledgments
+
+Special thanks to
+* [year-calendar](https://github.com/year-calendar/js-year-calendar) for the
+  calendar widget,
+* [cytoscape](https://github.com/cytoscape/cytoscape.js) for the graph widget,
+* [tikzjax](https://github.com/maker-jr/tikzjax) for rendering TikZ diagrams.
+
