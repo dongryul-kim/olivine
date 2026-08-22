@@ -18,7 +18,7 @@ let cy_elements = [
 { data: { source: '{{page.path|safe}}', target: '/tags/{{tag.name|safe}}/' } },
 {%- endfor %}
 {%- endfor %}
-{{ macros::extract(path="_index.md") | safe }}];
+{{<olivine.extract path="_index.md" base_url={config.base_url}/>}}];
 
 // Clean up data
 function bad_id(id) {

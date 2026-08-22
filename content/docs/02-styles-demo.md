@@ -10,7 +10,7 @@ This page shows the basic styles and features of the theme.
 There are the standard *italic* and **strong** and ***italic strong*** fonts.
 There is also ~~strikethrough~~.
 
-## Sections (h2) {#sections-h2}
+## Sections (h2)
 
 The table of contents appear in the right sidebar (expanded and folded using the
 book icon). Here are some lower-level sections.
@@ -114,11 +114,11 @@ anywhere[^2] in the document.
 
 ## Tags
 
-There is also a feature of creating a link to a tag. {{tag(name="olivine")}}
+There is also a feature of creating a link to a tag. {{<tag name="olivine"/>}}
 Note that this is a one-sided link, meaning that including this link does not
-make this page have this tag. This is implemented as a shortcode.
+make this page have this tag. This is implemented as a component.
 ```
-{{/* tag(name="olivine") */}}
+{% raw %}{{<tag name="olivine"/>}}{% endraw %}
 ```
 To add the tag to a page, use the option `taxonomies.tags` in the frontmatter.
 For example, the frontmatter for this page includes the following line.
@@ -133,7 +133,7 @@ A `<div>` element with class `olivine-admonish` is styled to be inside a bubble.
 <div class="olivine-admonish">
 
 **Remark.** One way to create an admonition block is to write raw HTML in your
-markdown file. A better way is to write a simple shortcode that does for you.
+markdown file. A better way is to write a simple component that does it for you.
 
 </div>
 

@@ -1,42 +1,42 @@
-{%- macro sitemap(path, first) -%}
+{% component olivine.sitemap(path: string, first: bool) -%}
 {%- set section = get_section(path=path) -%}
 {%- if not first %}, {% endif -%}
 "{{ section.path | safe }}" : "{{ section.title | default(value="") | safe }}"
 {%- for subsection in section.subsections -%}
-{{ self::sitemap(path=subsection, first=false) | safe }}
+{{<olivine.sitemap path={subsection} first={false}/>}}
 {%- endfor -%}
 {%- for page in section.pages -%}
 , "{{ page.path | safe }}" : "{{ page.title | default(value="") | safe }}"
 {%- endfor -%}
-{%- endmacro sitemap -%}
+{%- endcomponent %}
 
-{%- macro icon(name, type="regular") -%}
+{% component olivine.icon(name: string, type: string = "regular") -%}
 <span class="olivine-icon"><i class="fa-{{ type }} fa-{{ name }}"></i></span>
-{%- endmacro icon -%}
+{%- endcomponent %}
 
-{%- macro defer_stylesheet(href) -%}
+{% component olivine.defer_stylesheet(href: string) -%}
 <link rel="preload" href="{{ href | safe }}" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link rel="stylesheet" href="{{ href | safe }}"/></noscript>
-{%- endmacro defer_stylesheet -%}
+{%- endcomponent %}
 
-{% macro extract_back(obj) %}
+{% component olivine.extract_back(obj, base_url: string) -%}
 {%- for backlink in obj.backlinks -%}
-{%- set back = backlink.permalink | trim_start_matches(pat=config.base_url) -%}
+{%- set back = backlink.permalink | trim_start(pat=base_url) -%}
 { data: { source: '{{back|safe}}', target: '{{obj.path|safe}}' } },
 {% endfor -%}
-{% endmacro %}
+{%- endcomponent %}
 
-{% macro extract(path) %}
+{% component olivine.extract(path: string, base_url: string) -%}
 {%- set section = get_section(path=path) -%}
 { data: { id: '{{section.path|safe}}', type: 'section', name: '{{section.title|replace(from="'",to="\'")|truncate(length=20)|safe}}' } },
-{{ self::extract_back(obj=section) }}
+{{<olivine.extract_back obj={section} base_url={base_url}/>}}
 {%- for page in section.pages -%}
 { data: { id: '{{page.path|safe}}', type: 'page', name: '{{page.title|replace(from="'",to="\'")|truncate(length=20)|safe}}' } },
 { data: { source: '{{page.path|safe}}', target: '{{section.path|safe}}' } },
-{{ self::extract_back(obj=page) | safe }}
+{{<olivine.extract_back obj={page} base_url={base_url}/>}}
 {%- endfor -%}
 {%- for subsection in section.subsections -%}
-{{ self::extract(path=subsection) | safe }}
+{{<olivine.extract path={subsection} base_url={base_url}/>}}
 {%- set var_subsection = get_section(path=subsection) -%}
 { data: { source: '{{var_subsection.path|safe}}', target: '{{section.path|safe}}' } },
 {% endfor -%}
-{% endmacro extract %}
+{%- endcomponent %}

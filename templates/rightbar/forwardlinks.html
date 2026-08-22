@@ -1,10 +1,6 @@
 {%- if current %}
-{%- set split = current.content | split(pat=config.base_url) | slice(start=1) %}
-{%- set forward = [] %}
-{%- for item in split %}
-{%- set path = item | split(pat='"') | first %}
-{%- set_global forward = forward | concat(with=path) %}
-{%- endfor %}
+{%- set split = current.content | split(pat=config.base_url) %}
+{%- set forward = split[1:] %}
 {%- if forward %}
 <div id="olivine-forward-links">
 <h3>Forward links</h3>
@@ -13,7 +9,7 @@
 </div>
 <script>
 forward_list = [
-{% for path in forward %} "{{ path | safe }}", {% endfor %}
+{% for item in forward %}{% set path = item | split(pat='"') | first %} "{{ path | safe }}", {% endfor %}
 ];
 hydrateForward("olivine-forward-link-lists", forward_list,
 "{{ config.base_url | safe }}/olivine-internal-sitemap/");

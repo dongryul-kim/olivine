@@ -1,7 +1,4 @@
-{%- import "macros.html" as macros %}
-{%- if page or section %}
-{%- set_global current = section | default(value=page) %}
-{%- endif %}
+{%- set_global current = section or page or {} %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,7 +13,7 @@
     {%- endblock %}
     {%- block stylesheets %}
     <link href="{{ get_url(path="olivine.css") }}" rel="stylesheet"/>
-    {{ macros::defer_stylesheet(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css") }}
+    {{<olivine.defer_stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>}}
     {%- endblock %}
     {%- include "config.html" %}
     {%- block scripts %}
